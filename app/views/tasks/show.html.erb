@@ -3,7 +3,5 @@
 <p><%= @task.details %></p>
 
 <p><%= @task.completed ? 'Task complete' : 'Not yet complete' %></p>
-
-<%= link_to 'Edit this task', edit_task_path %>
-
-<%= link_to "Back to tasks", tasks_path %>
+<%= link_to 'Edit', edit_task_path, class: 'btn btn-primary' %>
+<%= link_to 'Back', tasks_path, class: 'btn btn-secondary' %>

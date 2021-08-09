@@ -1,9 +1,18 @@
-<%= form_for(@task) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :details %>
-  <%= f.text_field :details %>
-  <%= f.label :completed %>
-  <%= f.check_box :completed %>
-  <%= f.submit %>
+<%# <%= form_for(@task) do |f| %>
+  <%# <%= f.label :title %>
+  <%# <%= f.text_field :title %>
+  <%# <%= f.label :details %>
+  <%# <%= f.text_field :details %>
+  <%# <%= f.label :completed %>
+  <%# <%= f.check_box :completed %>
+  <%# <%= f.submit %>
+<%# <% end %>
+
+<%= simple_form_for(task) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :details %>
+  <% unless task.new_record? %>
+    <%= f.input :completed, as: :boolean %>
+  <% end %>
+  <%= f.button :submit, class: 'btn btn-primary w-100' %>
 <% end %>
