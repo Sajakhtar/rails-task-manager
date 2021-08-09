@@ -1,7 +1,18 @@
 <h1> <%= @task.title %> </h1>
 
-<p><%= @task.details %></p>
+<blockquote class="blockquote text-left p-3">
+  <p class="mb-0"><%= @task.details %></p>
+</blockquote>
 
-<p><%= @task.completed ? 'Task complete' : 'Not yet complete' %></p>
+<p>
+  <% if @task.completed %>
+    <i class="far fa-check-square"></i>
+    <small>Task complete</small>
+  <% else %>
+    <i class="far fa-square"></i>
+    <small>Not yet complete</small>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_task_path, class: 'btn btn-primary' %>
 <%= link_to 'Back', tasks_path, class: 'btn btn-secondary' %>
